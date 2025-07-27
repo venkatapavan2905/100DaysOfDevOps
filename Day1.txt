@@ -1,0 +1,3 @@
+#Create a user with non interactive shell
+
+useradd -s /sbin/nologin <username>

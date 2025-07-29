@@ -1,0 +1,10 @@
+#Disable root login
+
+vi /etc/ssh/sshd_config
+
+PermitRootLogin no --> either comment out this line or set this to no
+
+save and exit
+
+systemctl restart sshd
+

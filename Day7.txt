@@ -1,0 +1,7 @@
+# SSH Password-less authentication
+
+ssh-keygen
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@host
+
+#password is given during copy. From the next login no password is required.

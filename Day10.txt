@@ -1,0 +1,8 @@
+#!/bin/bash
+zip -r xfusioncorp_official.zip /var/www/html/official
+
+cp xfusioncorp_official.zip /backup/
+
+scp /backup/xfusioncorp_official.zip clint@stbkp01:/backup/
+
+enable passwordless authentication between appserver and backup server

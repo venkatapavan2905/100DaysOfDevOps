@@ -1,0 +1,9 @@
+# Install and configure tomcat server
+
+yum install tomcat -y
+
+#can change port from /etc/tomcat/server.xml under connector port
+
+#can move the war file to /var/lib/tomcat/webapps/ directory.
+
+systemctl start tomcat

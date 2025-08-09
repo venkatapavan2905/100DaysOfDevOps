@@ -1,0 +1,8 @@
+httpd not running. troubleshoot
+
+1. check for the ports httpd is bind to.
+2. netstat -tulnp | grep 8082
+3. kill the process if port is bound to another process instead of httpd
+4. kill -9 <pid>
+5. restart apache
+6. systemctl restart httpd

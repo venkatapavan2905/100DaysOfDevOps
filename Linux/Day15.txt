@@ -1,0 +1,12 @@
+#setting up ssl for nginx
+
+yum install nginx -y
+cat /etc/nginx/nginx.conf | grep ssl
+cp /tmp/.crt /etc/pki/nginx/.crt
+cp /tmp/.key /etc/pki/nginx/private/.key
+cd /usr/share/nginx/html/
+echo "Welcome!" > index.html
+vi /etc/nginx/nginx.conf
+# uncomment https block
+nginx -t
+systemctl start nginx && systemctl enable nginx

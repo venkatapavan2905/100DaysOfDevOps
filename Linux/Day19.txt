@@ -1,0 +1,19 @@
+# set up webserver
+
+yum install httpd -y
+
+systemctl start httpd
+
+systemctl enable httpd
+
+from jumphost
+
+scp -r ecommerce/ apps/ steve@stapp02:/var/www/html/
+
+curl http://localhost:8087/ecommerce/
+
+curl http://localhost:8087/apps/
+
+curl http://stapp02:8087/ecommerce/
+
+curl http://stapp02:8087/apps/

@@ -1,0 +1,11 @@
+# Install and run cron job
+
+sudo yum install cronie -y
+
+sudo systemctl start crond
+sudo systemctl status crond
+sudo systemctl enable crond
+
+sudo vi /etc/crontab
+
+*/5 * * * * root echo hello > /tmp/cron_text

@@ -1,0 +1,20 @@
+Nginx as LBR
+
+vi /etc/nginx/nginx.conf
+
+add following under http context
+
+upstream backend {
+    server 172.16.238.10:8084;
+    server 172.16.238.11:8084;
+    server 172.16.238.12:8084;
+}
+server {
+    location / {
+        proxy_pass http://backend;
+    }
+}
+
+systemctl restart nginx
+
+# this load balances to the three app servers.

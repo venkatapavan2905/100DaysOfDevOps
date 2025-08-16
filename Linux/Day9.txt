@@ -1,0 +1,5 @@
+# Troubleshoot mariadb service start
+
+1. check for owners for /var/lib/mysql 
+
+    It should be mysql:mysql 

@@ -1,0 +1,64 @@
+a. Install nginx on app server 2 , configure it to use port 8096 and its document root should be /var/www/html.
+
+
+b. Install php-fpm version 8.3 on app server 2, it must use the unix socket /var/run/php-fpm/default.sock (create the parent directories if don't exist).
+
+
+c. Configure php-fpm and nginx to work together.
+
+
+d. Once configured correctly, you can test the website using curl http://stapp02:8096/index.php command from jump host.
+
+sudo yum install -y nginx  # For RHEL/CentOS
+
+sudo vi /etc/nginx/nginx.conf
+
+server {
+    listen 8096 default_server;
+    server_name localhost;
+
+    root /var/www/html;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php-fpm/default.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+
+sudo dnf install epel-release -y
+
+sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-9.rpm -y
+
+sudo dnf module reset php
+
+sudo dnf module enable php:remi-8.3 -y
+
+sudo dnf install php php-cli php-fpm php-mysqlnd php-xml php-mbstring php-json php-zip -y
+
+php -v
+
+sudo vi /etc/php-fpm.d/www.conf
+
+listen = /var/run/php-fpm/default.sock
+listen.owner = nginx
+listen.group = nginx
+listen.mode = 0660
+
+sudo mkdir -p /var/run/php-fpm
+sudo chown nginx:nginx /var/run/php-fpm
+
+sudo systemctl enable php-fpm
+sudo systemctl enable nginx
+
+sudo systemctl start php-fpm
+sudo systemctl start nginx
+
+curl http://stapp02:8096/index.php
+

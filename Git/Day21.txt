@@ -1,0 +1,22 @@
+# Bare Repository
+
+A bare Git repository is a special kind of repository without a working directory — 
+it only contains the version control data (i.e. the .git directory contents) and no actual checked-out source files.
+
+
+#Create a bare repository named /opt/cluster.git (ensure exact name usage).
+
+
+mkdir -p /opt/cluster.git
+
+cd /opt/cluster.git
+
+git init --bare
+
+ls
+
+[root@ststor01 cluster.git]# ls
+HEAD  branches  config  description  hooks  info  objects  refs
+
+
+

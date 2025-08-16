@@ -1,5 +1,0 @@
-Faced issued with local and remote repo.
-
-git pull origin main --allow-unrelated-histories
-
-The above command resolved the issue.

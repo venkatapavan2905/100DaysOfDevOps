@@ -1,0 +1,5 @@
+clone a repository
+
+In the working directory use below command
+
+git clone <source_url/path>

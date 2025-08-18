@@ -1,0 +1,6 @@
+#Fork a repository.
+
+An open source repository can be forked to our own profile and make any chnages to it. 
+
+once the changes are done, raise a pull request so that maintainer of open source repo will review and merge it to the 
+main/master if it is better than previous code.

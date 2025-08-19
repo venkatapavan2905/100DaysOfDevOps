@@ -1,0 +1,5 @@
+#Branch Creation from master
+
+git branch --list / git status --> to see which branch we are on
+
+git branch <new_branch_name>

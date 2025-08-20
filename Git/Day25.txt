@@ -1,0 +1,19 @@
+#push master and branch to origin
+
+git status
+
+git checkout -b nautilus
+
+#copy any files
+
+git add .
+
+git commit -m "commit message"
+
+git checkout master
+
+git merge nautilus
+
+git push origin master
+
+git push origin nautilus

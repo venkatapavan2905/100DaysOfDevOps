@@ -1,0 +1,15 @@
+# Add new remote repo and point it some bare.
+
+git remote add <new_repo> <bare_repo.git>
+
+# list of remote repos.
+
+git remote -v
+
+# Add, commit and push to new remote repo
+
+git add .
+
+git commit -m "Commit Message"
+
+git push <new_repo> master.

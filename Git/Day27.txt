@@ -1,0 +1,10 @@
+#Revert
+
+Revert command to used to undo the changes from previous or from past commit and forms new commit in the history.
+
+Commit message is required and it does not clear/delete history
+
+git revert <commit-hash>
+
+git log --oneline
+

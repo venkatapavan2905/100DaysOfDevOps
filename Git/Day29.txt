@@ -1,0 +1,5 @@
+# Pull Request
+
+We have to create a pull request when merging chnages from a development branch to master branch.
+
+Its best add a reviewer to verify and merge into master/main branch.

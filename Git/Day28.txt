@@ -1,0 +1,12 @@
+#Cherrypick
+
+Cherry pick is used to select any one of the commit from any one of the branches and merge it into any branch of your choice.
+
+commit hash will be new/different but commit message and content remains same.
+
+git checkout <desired_branch>
+
+git cherry-pick <commit_hash>
+
+
+

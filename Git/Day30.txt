@@ -1,0 +1,7 @@
+# Git Reset Hard
+
+Reset command changes the HEAD position from the current commit to the desired commit, clearing all the history in the process
+
+git reset --hard <commit_hash>
+
+git push origin HEAD --force --> to change the history of remote repo.

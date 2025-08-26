@@ -1,0 +1,9 @@
+#stash 
+
+git stash list --> to list all the stashes
+
+git stash apply stash@{n} --> to apply the satash and keep it in the list
+
+git stash pop stash@{n} --> to apply the stash and delete it from the list.
+
+n indicates the stash number.

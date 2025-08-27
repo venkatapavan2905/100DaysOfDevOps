@@ -1,0 +1,19 @@
+#Rebase
+
+Rebase is nothing but adjusting the history of feature branch without a merge commit from origin branch.
+
+let me explain now so that i can understand it better when i am revising.
+
+let's consider two branches - main and feature
+
+main has commits m1, m2 and feature is created from main from m2 commit.
+
+feature has commits m1 and m2 now in its history and HEAD is located at m2 commit. 
+
+now main has a new commit m3 but feature does not have that new update in its history.
+
+so now if we use rebase on feature branch it will be like the feature branch is created from m3 commit.
+
+and the new commit id is generated to reflect that.
+
+git rebase origin/master --> to be executed when on feature branch.

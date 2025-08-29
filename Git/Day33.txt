@@ -1,0 +1,5 @@
+#Resolve Merge conflicts
+
+merge conflict appears when same changes are made to the file and pushed to the repo at the same time.
+
+One of the developers have to compromise and clear their changes and add and commit and push.

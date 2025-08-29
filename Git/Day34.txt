@@ -1,0 +1,16 @@
+#Git hooks.
+
+Hooks are used to automate or trigger a task after or before a certain event like commit, push etc.,
+
+cd hooks/
+
+example:
+
+1. remove .sample for the hook file to take effect.
+
+2. vi post-update
+
+#!/bin/bash
+git --git-dir=/opt/beta.git tag release-$(date +%F)
+
+3. This will attach a release tag for every push to the master.

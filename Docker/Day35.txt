@@ -1,0 +1,15 @@
+#Install docker-ce and docker compose
+
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl status docker
+
+sudo systemctl start docker
+
+sudo systemctl enable docker
+
+docker version
+
+docker compose version
+
+

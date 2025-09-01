@@ -1,0 +1,5 @@
+#Copy a file from local to containter
+
+/tmp/file
+
+docker cp /tmp/file containername:<path_in_container>

@@ -1,0 +1,3 @@
+#EXEC or login to container to check
+
+docker exec -it <container_name> /bin/sh

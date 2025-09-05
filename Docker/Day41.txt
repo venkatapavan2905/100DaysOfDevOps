@@ -1,0 +1,15 @@
+#Write a Dockerfile to build an image from ubuntu as base image and install apache in it, change port and start service.
+
+FROM ubuntu:24.04
+
+RUN apt-get update && apt install apache2 -y 
+
+RUN sed -i 's/Listen 80/Listen 5002/' /etc/apache2/ports.conf
+
+EXPOSE 5002
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+#docker build -t <image/repository_name>:<tag> . --> image build
+
+#docker run -d -p 5002:5002 --name <container_name> <image_name> --> image run

@@ -1,0 +1,22 @@
+#containerize an application usinf Docker Compose
+
+services:
+  web:
+    image: php:8.1.33-apache
+    container_name: php_web
+    ports:
+    - "3003:80"
+    volumes:
+    - /var/www/html:/var/www/html
+  db:
+   image: mariadb:latest
+   container_name: mysql_web
+   ports:
+   - "3306:3306"
+   volumes:
+   - /var/lib/mysql:/var/lib/mysql
+   environment:
+     MYSQL_DATABASE: database_web
+     MYSQL_USER: pavan
+     MYSQL_PASSWORD: kjsdfhfahvskv
+     MYSQL_ROOT_PASSWORD: Hjhkdhjk@43

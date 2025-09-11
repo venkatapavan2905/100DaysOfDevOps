@@ -1,0 +1,19 @@
+#Dockerfile to run python app
+
+FROM python:latest
+
+WORKDIR /app
+
+COPY src/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ .
+
+EXPOSE 6400
+
+CMD ["python", "server.py"]
+
+docker build -t nautilus/python-app .
+
+docker run -d -p 8099:6400 --name <container_name> <image_name>

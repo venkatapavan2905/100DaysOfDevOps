@@ -1,0 +1,12 @@
+#Create a pod
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-httpd
+  labels:
+    app: httpd_app
+spec:
+  containers:
+  - image: httpd:latest
+    name: httpd-container

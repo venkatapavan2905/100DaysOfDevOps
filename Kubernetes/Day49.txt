@@ -1,0 +1,21 @@
+# Deployment file
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd
+spec:
+  #Mandatory selctor field
+  selector: 
+    matchLabels:
+      app: httpd
+  template:
+    metadata:
+      name: httpd
+      #mandatory labels field
+      labels:
+        app: httpd
+    spec:
+     containers:
+     - name: httpd
+       image: httpd:latest

@@ -1,0 +1,7 @@
+#Change image name --> rolling update
+
+kubectl set image deployment/nginx-deployment nginx-container=nginx:1.19
+
+kubectl rollout status
+
+kubectl get deployments nginx-deployment

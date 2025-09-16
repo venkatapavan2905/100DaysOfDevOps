@@ -1,0 +1,11 @@
+#undo a deployment
+
+kubectl rollout undo deployment <deployment_name>
+
+kubectl rollout status deployment <deployment_name>
+
+kubectl rollout history deployment <deployment_name>
+
+kubectl rollout history deployment <deployment_name> --revision=<num> --> to see particular version
+
+kubectl rollout undo deployment <deployment_name> --to-revison=<num> --> to change to particular revision.

@@ -1,0 +1,7 @@
+#Resolve Volume Mount Issue
+
+#check for nginx document root in pod configuration should be /var/www/html
+
+kubectl cp <file_path> <podname>:<path_in_container> -c <container_name>
+
+kubectl cp /home/thor/index.php nginx-phpfpm:/var/www/html/index.php -c nginx-container

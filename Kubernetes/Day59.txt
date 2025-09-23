@@ -1,0 +1,8 @@
+#troubleshoot pod down in container creating state
+
+use below commands to check the issue
+
+kubectl logs <podname>
+kubectl describe pod <podname>
+
+and correct the issue based on that.

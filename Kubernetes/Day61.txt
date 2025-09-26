@@ -1,0 +1,20 @@
+kubectl create secret generic official --from-file=/opt/official.txt
+secret/official created
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-datacenter
+spec:
+  containers:
+  - name: secret-container-datacenter
+    image: ubuntu:latest
+    command: ["sleep", "3600"]
+    volumeMounts:
+    - name: secret-volume
+      mountPath: /opt/cluster
+      readOnly: true
+  volumes:
+  - name: secret-volume
+    secret:
+      secretName: official

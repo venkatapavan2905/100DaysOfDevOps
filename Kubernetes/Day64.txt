@@ -1,0 +1,7 @@
+# ErrImagePull
+
+Check image name correctly for this error and if the credentials are configured correctly to pull the images.
+
+# Not able to access the application
+
+Check if the ports are configured correctly.

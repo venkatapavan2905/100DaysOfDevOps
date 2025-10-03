@@ -1,0 +1,8 @@
+#Install plugins
+
+Go to manage jenkins and install plugins.
+
+Restart jenkins after installation.
+
+Make sure they are installed unser installed section.
+

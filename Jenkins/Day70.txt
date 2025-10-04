@@ -1,0 +1,9 @@
+# Enable access to user in jenkins
+
+1. Install matrix strategy plugin in jenkins.
+
+2. go to jenkins security and add user and provide required access.
+
+3. to give access for specific builds go to build and click on configure.
+
+4. choose enable project based security and provide required access.

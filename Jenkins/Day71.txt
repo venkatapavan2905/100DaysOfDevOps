@@ -1,0 +1,8 @@
+#install packages on remote server using string parameter.
+
+1. Install ssh plugins.
+2. choose a freestyle project
+3. select build is paramterized option.
+4. add paramater.
+5. select build using shell on remote host using ssh option
+6. sshpass -p <password> sudo yum install $parameter -y

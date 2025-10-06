@@ -1,0 +1,6 @@
+#Parameterized Builds
+
+choice parameter - this option lets you choose from the options configured during build.
+
+example: env --> choice parameter named env
+         Staging, Development and Production can be values

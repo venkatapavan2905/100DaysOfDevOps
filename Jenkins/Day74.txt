@@ -1,0 +1,4 @@
+#cron job to take scheduled backups and transfer it to storage server
+
+mysqldump -u kodekloud_roy -pasdfgdsd kodekloud_db01 > db_$(date +%F).sql
+sshpass -p H@wk3y3 scp -o StrictHostKeyChecking=no db_$(date +%F).sql clint@stbkp01:/home/clint/db_backups

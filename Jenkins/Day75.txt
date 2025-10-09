@@ -1,0 +1,36 @@
+#script to install jenkins to add them as nodes/slaves.
+
+#plugin: build agent with SSH
+
+sshpass -p Ir0nM@n sudo yum install wget -y
+sshpass -p Ir0nM@n sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sshpass -p Ir0nM@n sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sshpass -p Ir0nM@n sudo yum upgrade -y
+sshpass -p Ir0nM@n sudo yum install fontconfig java-21-openjdk -y
+sshpass -p Ir0nM@n sudo yum install jenkins -y
+sshpass -p Ir0nM@n sudo systemctl daemon-reload
+sshpass -p Ir0nM@n sudo systemctl enable jenkins
+sshpass -p Ir0nM@n sudo systemctl start jenkins
+sshpass -p Ir0nM@n sudo systemctl status jenkins
+
+sshpass -p Am3ric@ sudo yum install wget -y
+sshpass -p Am3ric@ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sshpass -p Am3ric@ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sshpass -p Am3ric@ sudo yum upgrade -y 
+sshpass -p Am3ric@ sudo yum install fontconfig java-21-openjdk -y
+sshpass -p Am3ric@ sudo yum install jenkins -y
+sshpass -p Am3ric@ sudo systemctl daemon-reload
+sshpass -p Am3ric@ sudo systemctl enable jenkins
+sshpass -p Am3ric@ sudo systemctl start jenkins
+sshpass -p Am3ric@ sudo systemctl status jenkins
+
+sshpass -p BigGr33n sudo yum install wget -y
+sshpass -p BigGr33n sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sshpass -p BigGr33n sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sshpass -p BigGr33n sudo yum upgrade -y
+sshpass -p BigGr33n sudo yum install fontconfig java-21-openjdk -y
+sshpass -p BigGr33n sudo yum install jenkins -y
+sshpass -p BigGr33n sudo systemctl daemon-reload
+sshpass -p BigGr33n sudo systemctl enable jenkins
+sshpass -p BigGr33n sudo systemctl start jenkins
+sshpass -p BigGr33n sudo systemctl status jenkins

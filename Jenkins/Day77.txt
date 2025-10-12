@@ -1,0 +1,27 @@
+#conditional pipeline
+pipeline {
+    agent {
+        label 'ststor01'
+    }
+    stages {
+        stage('Deploy'){
+            steps {
+                script {
+                    sh 'cd /var/www/html && rm -rf web_app'
+                    if (params.BRANCH == 'master') {
+                        sh '''
+                          cd /var/www/html && git clone -b master http://git.stratos.xfusioncorp.com/sarah/web_app.git
+                          cd /var/www/html && cp web_app/index.html /var/www/html/
+                        '''
+                    }
+                    else if(params.BRANCH == 'feature') {
+                        sh '''
+                          cd /var/www/html && git clone -b feature http://git.stratos.xfusioncorp.com/sarah/web_app.git
+                          cd /var/www/html && cp web_app/index.html /var/www/html/
+                        '''
+                    }
+                }
+            }
+        }
+    }
+}

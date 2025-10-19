@@ -1,0 +1,40 @@
+sshpass -p Bl@kW sudo yum install wget -y
+sshpass -p Bl@kW sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sshpass -p Bl@kW sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sshpass -p Bl@kW sudo yum upgrade -y
+sshpass -p Bl@kW sudo yum install fontconfig java-21-openjdk -y
+sshpass -p Bl@kW sudo yum install jenkins -y
+sshpass -p Bl@kW sudo systemctl daemon-reload
+sshpass -p Bl@kW sudo systemctl enable jenkins
+sshpass -p Bl@kW sudo systemctl start jenkins
+sshpass -p Bl@kW sudo systemctl status jenkins
+
+pipeline {
+    agent {
+        label 'ststor01'
+    }
+    stages {
+        stage('Deploy') {
+            steps {
+                sh 'cd /var/www/html && git pull'
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    // Get HTTP status code
+                    def response = sh(
+                        script: 'curl -s -o /dev/null -w "%{http_code}" http://stlb01:8091',
+                        returnStdout: true
+                    ).trim()
+                    
+                    if (response == "200") {
+                        echo "Website is accessible."
+                    } else {
+                        error("Website is not accessible. HTTP Response: ${response}")
+                    }
+                }
+            }
+        }
+    }
+}

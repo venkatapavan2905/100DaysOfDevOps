@@ -1,0 +1,3 @@
+#create inventory file
+
+stapp03 ansible_user=banner ansible_ssh_password=BigGr33n

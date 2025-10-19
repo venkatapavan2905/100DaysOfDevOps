@@ -1,0 +1,24 @@
+sshpass -p Ir0nM@n sudo yum install httpd -y
+sshpass -p Ir0nM@n sudo systemctl enable httpd
+sshpass -p Ir0nM@n sudo systemctl start httpd
+sshpass -p Ir0nM@n sudo systemctl status httpd
+sshpass -p Ir0nM@n sudo sed -i 's/^Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+sshpass -p Ir0nM@n sudo systemctl restart httpd
+
+sshpass -p Am3ric@ sudo yum install httpd -y
+sshpass -p Am3ric@ sudo systemctl enable httpd
+sshpass -p Am3ric@ sudo systemctl start httpd
+sshpass -p Am3ric@ sudo systemctl status httpd
+sshpass -p Am3ric@ sudo sed -i 's/^Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+sshpass -p Am3ric@ sudo systemctl restart httpd
+
+sshpass -p BigGr33n sudo yum install httpd -y
+sshpass -p BigGr33n sudo systemctl enable httpd
+sshpass -p BigGr33n sudo systemctl start httpd
+sshpass -p BigGr33n sudo systemctl status httpd
+sshpass -p BigGr33n sudo sed -i 's/^Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+sshpass -p BigGr33n sudo systemctl restart httpd
+
+rm -rf web
+git clone http://git.stratos.xfusioncorp.com/sarah/web.git
+cp web/index.html /var/www/html

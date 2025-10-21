@@ -1,0 +1,11 @@
+# Install packages
+
+---
+- name: Install Packages
+  hosts: web
+  become: yes
+  tasks:
+  - name: install vim
+    ansible.builtin.dnf:
+      name: vim-enhanced
+      state: present

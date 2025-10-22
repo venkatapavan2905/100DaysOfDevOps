@@ -1,0 +1,31 @@
+# install and configure webserver
+
+---
+- name: Install webserver
+  hosts: all
+  become: yes
+  tasks:
+  - name: install httpd
+    ansible.builtin.dnf:
+      name: httpd
+      state: present
+  - name: edit index.html
+    ansible.builtin.blockinfile:
+      create: true
+      path: /var/www/html/index.html
+      block: |
+        Welcome to XfusionCorp!
+
+        This is  Nautilus sample file, created using Ansible!
+
+        Please do not modify this file manually!
+  - name: permssions
+    ansible.builtin.file:
+      path: /var/www/html/index.html
+      owner: apache
+      group: apache
+      mode: 0755
+  - name: start service
+    ansible.builtin.service:
+      name: httpd
+      state: started

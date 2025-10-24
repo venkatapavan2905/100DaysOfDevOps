@@ -1,0 +1,16 @@
+#install, start and enable service
+
+---
+- name: Manage Services
+  hosts: all
+  become: yes
+  tasks:
+  - name: install vsftpd
+    ansible.builtin.dnf:
+      name: vsftpd
+      state: present
+  - name: start and enable service
+    ansible.builtin.service:
+      name: vsftpd
+      state: started
+      enabled: true

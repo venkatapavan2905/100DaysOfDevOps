@@ -1,0 +1,46 @@
+#create file and set acl
+
+---
+- name: set acl's
+  hosts: all
+  become: yes
+  tasks:
+  - name: create file on server1
+    ansible.builtin.file:
+      path: /opt/security/blog.txt
+      state: touch
+    when: ansible_hostname == "stapp01"
+  - name: create file on server2
+    ansible.builtin.file:
+      path: /opt/security/story.txt
+      state: touch
+    when: ansible_hostname == "stapp02"
+  - name: create file on server3
+    ansible.builtin.file:
+      path: /opt/security/media.txt
+      state: touch
+    when: ansible_hostname == "stapp03"
+  - name: set acl on app server1
+    ansible.posix.acl:
+      path: /opt/security/blog.txt
+      entity: tony
+      etype: group
+      permissions: r
+      state: present
+    when: ansible_hostname == "stapp01"
+  - name: set acl on app server 2
+    ansible.posix.acl:
+      path: /opt/security/story.txt
+      entity: steve
+      etype: user
+      permissions: rw
+      state: present
+    when: ansible_hostname == "stapp02"
+  - name: set acl on app sever 3
+    ansible.posix.acl:
+      path: /opt/security/media.txt
+      entity: banner
+      etype: group
+      permissions: rw
+      state: present
+    when: ansible_hostname == "stapp03"

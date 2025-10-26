@@ -1,0 +1,38 @@
+#role playbook
+
+#template module should be used when copying jinja template from src to dest using ansible.
+
+~/ansible/role/httpd/tasks$ cat main.yml 
+---
+# tasks file for role/test
+
+- name: install the latest version of HTTPD
+  yum:
+    name: httpd
+    state: latest
+
+- name: Start service httpd
+  service:
+    name: httpd
+    state: started
+
+- name: copy file
+  template:
+    src: /home/thor/ansible/role/httpd/templates/index.html.j2
+    dest: /var/www/html/index.html
+    mode: 0644
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+
+~/ansible/role/httpd/templates$ cat index.html.j2 
+This file was created using Ansible on {{ inventory_hostname }}
+
+~/ansible$ cat playbook.yml 
+---
+- hosts: stapp01
+  become: yes
+  become_user: root
+  roles:
+    - role/httpd
+

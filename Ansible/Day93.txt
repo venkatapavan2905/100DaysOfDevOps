@@ -1,0 +1,31 @@
+#conditional statement
+
+---
+- name: conditional playbook
+  hosts: all
+  become: yes
+  tasks:
+  - name: create file on server1
+    ansible.builtin.copy:
+      src: /usr/src/devops/blog.txt
+      dest: /opt/devops
+      owner: tony
+      group: tony
+      mode: 0755
+    when: ansible_hostname == "stapp01"
+  - name: create file on server2
+    ansible.builtin.copy:
+      src: /usr/src/devops/story.txt
+      dest: /opt/devops/media.txt
+      owner: steve
+      group: steve
+      mode: 0755
+    when: ansible_hostname == "stapp02"
+  - name: create file on server3
+    ansible.builtin.copy:
+      src: /usr/src/devops/media.txt
+      dest: /opt/devops/media.txt
+      owner: banner
+      group: banner
+      mode: 0755
+    when: ansible_hostname == "stapp03"

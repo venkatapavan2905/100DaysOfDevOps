@@ -8,7 +8,7 @@
   - name: create file on server1
     ansible.builtin.copy:
       src: /usr/src/devops/blog.txt
-      dest: /opt/devops
+      dest: /opt/devops/blog.txt
       owner: tony
       group: tony
       mode: 0755
@@ -16,7 +16,7 @@
   - name: create file on server2
     ansible.builtin.copy:
       src: /usr/src/devops/story.txt
-      dest: /opt/devops/media.txt
+      dest: /opt/devops/story.txt
       owner: steve
       group: steve
       mode: 0755

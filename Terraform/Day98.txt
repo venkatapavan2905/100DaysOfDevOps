@@ -1,0 +1,65 @@
+resource "aws_vpc" "vpc" {
+    cidr_block = var.KKE_VPC_CIDR
+    tags = {
+        Name = "devops-priv-vpc"
+    }
+}
+
+resource "aws_subnet" "subnet"{
+    cidr_block = var.KKE_SUBNET_CIDR
+    vpc_id = aws_vpc.vpc.id
+    map_public_ip_on_launch = "false"
+    tags = {
+        Name = "devops-priv-subnet"
+    }
+}
+
+resource "aws_security_group" "sg" {
+    ingress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks =  ["10.0.0.0/16"]
+    }
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = ["10.0.0.0/16"]
+    }
+    tags = {
+        Name = "priv-sg"
+    }
+}
+
+resource "aws_instance" "ec2" {
+    ami = "ami-0c101f26f147fa7fd"
+    instance_type = "t2.micro"
+    subnet_id = aws_subnet.subnet.id
+    vpc_security_group_ids = [aws_security_group.sg.id]
+    tags = {
+        Name = "devops-priv-ec2"
+    }
+}
+
+output "KKE_vpc_name" {
+    value = aws_vpc.vpc.tags["Name"]
+}
+
+output "KKE_subnet_name" {
+    value = aws_subnet.subnet.tags["Name"]
+}
+
+output "KKE_ec2_private" {
+    value = aws_instance.ec2.tags["Name"]
+}
+
+variable "KKE_VPC_CIDR" {
+    type = string
+    default = "10.0.0.0/16"
+}
+
+variable "KKE_SUBNET_CIDR" {
+    type = string
+    default = "10.0.1.0/24"
+}

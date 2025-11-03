@@ -29,10 +29,10 @@ resource "aws_cloudwatch_metric_alarm" "alarm" {
   }
 }
 
-output "kke_instance_name" {
+output "KKE_instance_name" {
   value = aws_instance.ec2.tags["Name"]
 }
 
-output "kke_alarm_name" {
+output "KKE_alarm_name" {
   value = aws_cloudwatch_metric_alarm.alarm.alarm_name
 }
